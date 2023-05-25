@@ -71,3 +71,17 @@ var questions = [
     answer: "Document Object Model",
   },
 ];
+
+var currentQuestion = 0;
+var timeLeft = 60;
+var timer;
+
+document.querySelector("#start-button").addEventListener("click", startQuiz);
+
+function startQuiz() {
+  document.querySelector("#start-button").style.display = "none";
+  document.querySelector("#subtitle-hero").style.display = "none";
+  timer = setInterval(updateTime, 1000);
+  updateTime();
+  nextQuestion();
+}
