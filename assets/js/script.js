@@ -113,7 +113,7 @@ function nextQuestion() {
       );
       choiceButton.textContent = questions[currentQuestion].choices[i];
       choiceButton.setAttribute(
-        "data-choice",
+        "answer-choice",
         questions[currentQuestion].choices[i]
       );
       choicesContainer.appendChild(choiceButton);
