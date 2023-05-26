@@ -85,3 +85,12 @@ function startQuiz() {
   updateTime();
   nextQuestion();
 }
+
+function updateTime() {
+  timeLeft--;
+  document.querySelector("#timer").textContent = `Time: ${timeLeft}s`;
+
+  if (timeLeft <= 0) {
+    endQuiz();
+  }
+}
