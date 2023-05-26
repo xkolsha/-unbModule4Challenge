@@ -75,6 +75,7 @@ var questions = [
 var currentQuestion = 0;
 var timeLeft = 60;
 var timer;
+var choicesContainer = document.querySelector("#choices-container");
 
 document.querySelector("#start-button").addEventListener("click", startQuiz);
 
@@ -93,4 +94,37 @@ function updateTime() {
   if (timeLeft <= 0) {
     endQuiz();
   }
+}
+
+function nextQuestion() {
+  if (currentQuestion < questions.length) {
+    document.querySelector("#question-container").textContent =
+      questions[currentQuestion].question;
+    choicesContainer.innerHTML = "";
+
+    for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+      var choiceButton = document.createElement("answer-button");
+      choiceButton.classList.add(
+        "button",
+        "is-dark",
+        "is-medium",
+        "mr-3",
+        "mb-3"
+      );
+      choiceButton.textContent = questions[currentQuestion].choices[i];
+      choiceButton.setAttribute(
+        "data-choice",
+        questions[currentQuestion].choices[i]
+      );
+      choicesContainer.appendChild(choiceButton);
+    }
+  } else {
+    endQuiz();
+  }
+}
+
+function checkAnswer(event) {}
+
+function endQuiz() {
+  clearInterval(timer);
 }
