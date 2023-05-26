@@ -17,7 +17,7 @@ var questions = [
   },
   {
     question: "What is the result of '1' + 1 in JavaScript?",
-    choices: ["11", "2", "11", "NaN"],
+    choices: ["11", "2", "12", "NaN"],
     answer: "11",
   },
   {
@@ -51,7 +51,7 @@ var questions = [
   {
     question:
       "What is the output of the following code?\n\nconsole.log(2 + '2' - 1);",
-    choices: ["1", "3", "22", "NaN"],
+    choices: ["21", "3", "22", "NaN"],
     answer: "21",
   },
   {
@@ -76,11 +76,13 @@ var currentQuestion = 0;
 var timeLeft = 60;
 var timer;
 var choicesContainer = document.querySelector("#choices-container");
+var questionContainer = document.querySelector("#question-container");
+var startButton = document.querySelector("#start-button");
 
-document.querySelector("#start-button").addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  document.querySelector("#start-button").style.display = "none";
+  startButton.style.display = "none";
   document.querySelector("#subtitle-hero").style.display = "none";
   timer = setInterval(updateTime, 1000);
   updateTime();
@@ -98,8 +100,7 @@ function updateTime() {
 
 function nextQuestion() {
   if (currentQuestion < questions.length) {
-    document.querySelector("#question-container").textContent =
-      questions[currentQuestion].question;
+    questionContainer.textContent = questions[currentQuestion].question;
     choicesContainer.innerHTML = "";
 
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
@@ -117,14 +118,44 @@ function nextQuestion() {
         questions[currentQuestion].choices[i]
       );
       choicesContainer.appendChild(choiceButton);
+      choiceButton.addEventListener("click", checkAnswer);
     }
   } else {
     endQuiz();
   }
 }
 
-function checkAnswer(event) {}
+function checkAnswer(event) {
+  var selectedChoice = event.target.getAttribute("answer-choice");
+
+  if (selectedChoice === questions[currentQuestion].answer) {
+    currentQuestion++;
+    nextQuestion();
+  } else {
+    timeLeft -= 10;
+  }
+}
 
 function endQuiz() {
   clearInterval(timer);
+  var Name = prompt("Enter your Name:");
+  var score = timeLeft;
+  localStorage.setItem("Name", Name);
+  localStorage.setItem("score", score);
+  questionContainer.textContent = `Your score is: ${score}`;
+  questionContainer.classList.add("is-size-3");
+  choicesContainer.innerHTML = "";
+  var resetButton = document.createElement("button");
+  resetButton.classList.add("button", "is-danger", "is-large", "mr-3", "mb-3");
+  resetButton.textContent = "Reset Quiz";
+  resetButton.addEventListener("click", resetQuiz);
+  choicesContainer.appendChild(resetButton);
+}
+
+function resetQuiz() {
+  currentQuestion = 0;
+  timeLeft = 60;
+  startButton.style.display = "block";
+  document.querySelector("#subtitle-hero").style.display = "block";
+  questionContainer.textContent = "";
 }
