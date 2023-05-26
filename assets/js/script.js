@@ -146,7 +146,7 @@ function endQuiz() {
   questionContainer.classList.add("is-size-3");
   choicesContainer.innerHTML = "";
   var resetButton = document.createElement("button");
-  resetButton.classList.add("button", "is-danger", "is-large", "mr-3", "mb-3");
+  resetButton.classList.add("button", "is-danger", "is-large", "is-responsiv", "mr-3", "mb-3");
   resetButton.textContent = "Reset Quiz";
   resetButton.addEventListener("click", resetQuiz);
   choicesContainer.appendChild(resetButton);
