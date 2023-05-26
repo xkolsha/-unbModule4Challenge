@@ -1,10 +1,8 @@
-# Module 2 - Advanced CSS Challenge: Professional Portfolio
+# Module 4 - Web APIs Challenge: Code Quiz
 
 ## Description
 
-A portfolio of work can showcase your skills and talents to employers looking to fill a part-time or full-time position. An effective portfolio highlights your strongest work as well as the thought processes behind it. Students who have portfolios with deployed web applications (meaning they are live on the web) are typically very successful in their career search after the boot camp. This last point can't be stressed enough: having several deployed projects is a minimum requirement to receive an initial interview at many companies.
-
-With these points in mind, in this Challenge you'll set yourself up for future success by applying the core skills you've recently learned: flexbox, media queries, and CSS variables. You'll get to practice your new skills while creating something that you'll use during your job search. It's a win-win that you'll likely be grateful for in the future!
+This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface.
 
 ## Table of Contents
 
@@ -22,36 +20,36 @@ With these points in mind, in this Challenge you'll set yourself up for future s
 
 ## User Story
 
-AS AN employer
-I WANT to view a potential employee's deployed portfolio of work samples
-SO THAT I can review samples of their work and assess whether they're a good candidate for an open position
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
 
 ## Acceptance Criteria
 
-- GIVEN I need to sample a potential employee's previous work
-- WHEN I load their portfolio
-- THEN I am presented with the developer's name, a recent photo or avatar, and links to sections about them, their work, and how to contact them
-- WHEN I click one of the links in the navigation
-- THEN the UI scrolls to the corresponding section
-- WHEN I click on the link to the section about their work
-- THEN the UI scrolls to a section with titled images of the developer's applications
-- WHEN I am presented with the developer's first application
-- THEN that application's image should be larger in size than the others
-- WHEN I click on the images of the applications
-- THEN I am taken to that deployed application
-- WHEN I resize the page or view the site on various screens and devices
-- THEN I am presented with a responsive layout that adapts to my viewport
+- GIVEN I am taking a code quiz
+- WHEN I click the start button
+- THEN a timer starts and I am presented with a question
+- WHEN I answer a question
+- THEN I am presented with another question
+- WHEN I answer a question incorrectly
+- THEN time is subtracted from the clock
+- WHEN all questions are answered or the timer reaches 0
+- THEN the game is over
+- WHEN the game is over
+- THEN I can save my initials and score
 
 ## Mock Up
 
-![Mock up of the website](./assets/images/Web%20capture_12-5-2023_0357_xkolsha.github.io.jpeg)
+![Mock up of the website](./assets/images/Web%20capture_26-5-2023_12918_xkolsha.github.io.jpeg)
 
 ## Credits
 
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
-- https://developer.mozilla.org/en-US/docs/Web/CSS/grid
-- https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
+- https://bulma.io/
+- https://htmlcheatsheet.com/js/
+- https://www.w3schools.com/
 - http://meyerweb.com/eric/tools/css/reset/
+- https://github.com/necolas/normalize.css
 - https://courses.bootcampspot.com/ (Challenge description)
 - https://www.youtube.com/@KevinPowell
 
